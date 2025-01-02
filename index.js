@@ -20,11 +20,13 @@ try {
 const delay = 750;
 const createSEOCopyBox = async (data) => {
 	console.log(seoCopyBoxArr);
+	// data = {address: '', extractor1: ''}
 	let blogSEOCopyBoxData = extractSEOCopyBoxData(data);
+	// blogSEOCopyBoxData = { name: '', label: '', body, seoButtons}
 	console.log({ blogSEOCopyBoxData });
 
 	const seoCopyBoxQuery = buildSEOCopyBoxQuery(blogSEOCopyBoxData);
-	console.log({ seoCopyBoxQuery });
+	// console.log({ seoCopyBoxQuery });
 
 	await createSEOCopyBlockAPI(seoCopyBoxQuery);
 };

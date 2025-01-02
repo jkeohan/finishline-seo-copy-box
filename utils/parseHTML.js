@@ -17,11 +17,15 @@ const TAGS = {
 	A: (node) => `[${node.textContent}](${node.href})`, // Anchor (link)
 	UL: (node) => node.childNodes.map((child) => TAGS.LI(child)).join('\n'), // Unordered list
 	LI: (node) => `- ${node.textContent}`, // List item
-	BLOCKQUOTE: (node) => `> ${node.textContent}\n`, // Blockquote
 	HR: () => `\n\n---\n`, // Horizontal rule
 	BR: () => `\n`, // Line break (single newline)
 	DIV: (node) => node.textContent, // Div (no special formatting)
 };
+const seoButtons = {
+	list: [],
+	title: '',
+};
+
 function ensureParagraphTags(htmlString) {
 	// console.log('htmlString', htmlString);
 	// replace &amp with &
@@ -49,8 +53,8 @@ export const convertHTMLToMarkdown = (htmlString) => {
 			textBlocks.push(processedBlock);
 		}
 	});
-	console.log({ textBlocks });
-	return textBlocks;
+	console.log({ textBlocks, seoButtons });
+	return { textBlocks, seoButtons };
 };
 
 let skipNextP = false;
@@ -71,6 +75,12 @@ const processNode = (node) => {
 			node.nextElementSibling.textContent.includes('|')
 		) {
 			skipNextP = true;
+			seoButtons.title = node.textContent.replace(/�/g, "'");
+			// Parse the links in the next <P> element's innerHTML
+			const anchorsArray = parseLinks(node.nextElementSibling.innerHTML);
+			if (anchorsArray && anchorsArray.length) {
+				seoButtons.list = anchorsArray;
+			}
 			return '';
 		}
 
@@ -78,7 +88,7 @@ const processNode = (node) => {
 			skipNextP = false;
 			return '';
 		}
-		console.log({ tagName });
+
 		if (tagHandler) return tagHandler(node);
 		// Handle children recursively if no specific TAGS handler is found
 		const children = Array.from(node.childNodes)
@@ -89,3 +99,21 @@ const processNode = (node) => {
 	}
 	return null;
 };
+
+// Function to parse the links in the paragraph (with '|' separator)
+function parseLinks(html) {
+	// Create a DOM parser
+	const dom = new JSDOM(html);
+	const doc = dom.window.document;
+
+	// Select all anchor tags in the paragraph
+	const anchorTags = doc.querySelectorAll('a');
+	//   console.log({ anchorTags });
+
+	// Map over anchor tags and return the desired array of objects
+	const anchorsArr = Array.from(anchorTags).map((anchor) => ({
+		label: anchor.textContent.trim().replace(/�/g, "'"),
+		url: anchor.href,
+	}));
+	return anchorsArr;
+}

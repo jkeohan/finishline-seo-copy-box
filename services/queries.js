@@ -1,8 +1,10 @@
-import {
-	DC_FOLDER_ID,
-} from '../data/constants.js';
+import { DC_FOLDER_ID } from '../data/constants.js';
 
-export const buildSEOCopyBoxQuery = ({name, body}) => {
+export const buildSEOCopyBoxQuery = ({
+	name,
+	body,
+	seoButtons: { title, list },
+}) => {
 	return {
 		body: {
 			_meta: {
@@ -16,18 +18,9 @@ export const buildSEOCopyBoxQuery = ({name, body}) => {
 			seoBrands: {
 				hide: false,
 				brandDetails: {
-					list: [
-						{
-							label: 'Men’s Basketball Shoes ',
-							url: 'https://www.jdsports.com/store/men/shoes/basketball/_/N-1a8wx2c"',
-						},
-						{
-							label: 'Men’s Running Shoes',
-							url: 'https://www.jdsports.com/store/men/shoes/running/_/N-1m2y8s2',
-						},
-					],
+					list,
 				},
-				title: 'FEATURED MEN’S FOOTWEAR',
+				title,
 			},
 		},
 		label: name,

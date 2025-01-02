@@ -1,11 +1,12 @@
 import { convertHTMLToMarkdown } from './parseHTML.js'
 
 export const extractSEOCopyBoxData = ({ address, extractor1}) => {
-	let body = convertHTMLToMarkdown(extractor1).join('')
-	body = body.replace(/�/g, "'");
+	let {textBlocks, seoButtons} = convertHTMLToMarkdown(extractor1)
+	const body = textBlocks.join('').replace(/�/g, "'");
 	return {
 		name: address,
 		label: address,
 		body,
+		seoButtons
 	};
 };

@@ -202,3 +202,63 @@ https://www.jdsports.com/store/men/shoes/_/N-puo7x9
 https://www.jdsports.com/store/men/shoes/_/N-puo7x9
 [2025-01-01T22:54:07.093Z] createBlogAPI: created 
 https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T00:37:52.176Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T00:38:26.693Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T00:59:24.928Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T01:00:01.978Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T01:00:33.861Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T01:01:35.306Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T01:02:44.156Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T01:04:01.451Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T01:04:30.214Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T01:06:16.560Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T01:07:01.819Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T01:07:41.882Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T01:10:07.784Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T01:13:03.456Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T01:18:46.406Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "CONTENT_TYPE_INVALID",
+      "message": "should NOT have more than 9 items",
+      "property": "FATAL",
+      "entity": "ContentTypeValidation",
+      "invalidValue": "/seoBrands/brandDetails/list"
+    }
+  ]
+}
+data: https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T01:23:55.713Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "CONTENT_TYPE_INVALID",
+      "message": "should NOT have more than 9 items",
+      "property": "FATAL",
+      "entity": "ContentTypeValidation",
+      "invalidValue": "/seoBrands/brandDetails/list"
+    }
+  ]
+}
+data: https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T01:24:21.859Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-02T01:34:24.180Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
