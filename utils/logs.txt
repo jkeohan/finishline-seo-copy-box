@@ -1,0 +1,204 @@
+[2025-01-01T21:41:16.226Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "FORBIDDEN",
+      "message": "Authorization required."
+    }
+  ]
+}
+data: Finish Line SEO Copy Box via API
+[2025-01-01T21:42:26.676Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "FORBIDDEN",
+      "message": "Authorization required."
+    }
+  ]
+}
+data: Finish Line SEO Copy Box via API
+[2025-01-01T21:44:12.862Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "FORBIDDEN",
+      "message": "Authorization required."
+    }
+  ]
+}
+data: Finish Line SEO Copy Box via API
+[2025-01-01T21:45:13.336Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "FORBIDDEN",
+      "message": "Authorization required."
+    }
+  ]
+}
+data: Finish Line SEO Copy Box via API
+[2025-01-01T21:46:23.605Z] createBlogAPI: An error occurred:
+Error: "Unsupported protocol ttps:"
+data: Finish Line SEO Copy Box via API
+[2025-01-01T21:48:56.848Z] createBlogAPI: An error occurred:
+Error: "Unsupported protocol ttps:"
+data: Finish Line SEO Copy Box via API
+[2025-01-01T21:49:27.140Z] createBlogAPI: created 
+Finish Line SEO Copy Box via API
+[2025-01-01T21:50:44.164Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "CONTENT_ITEM_INVALID_JSON",
+      "message": "Invalid value for name"
+    }
+  ]
+}
+data: [object Object]
+[2025-01-01T21:53:41.004Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "CONTENT_ITEM_INVALID_JSON",
+      "message": "Invalid value for name"
+    }
+  ]
+}
+data: [object Object]
+[2025-01-01T21:54:40.708Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "CONTENT_ITEM_INVALID_JSON",
+      "message": "Invalid value for name"
+    }
+  ]
+}
+data: [object Object]
+[2025-01-01T21:55:09.773Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "CONTENT_ITEM_INVALID_JSON",
+      "message": "Invalid value for name"
+    }
+  ]
+}
+data: [object Object]
+[2025-01-01T21:55:50.790Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "CONTENT_ITEM_INVALID_JSON",
+      "message": "Invalid value for name"
+    }
+  ]
+}
+data: [object Object]
+[2025-01-01T21:56:17.630Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "CONTENT_ITEM_INVALID_JSON",
+      "message": "Invalid value for name"
+    }
+  ]
+}
+data: [object Object]
+[2025-01-01T21:57:27.376Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "CONTENT_ITEM_INVALID_JSON",
+      "message": "Invalid value for name"
+    }
+  ]
+}
+data: [object Object]
+[2025-01-01T21:58:12.365Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "CONTENT_ITEM_INVALID_JSON",
+      "message": "Invalid value for name"
+    }
+  ]
+}
+data: [object Object]
+[2025-01-01T21:58:25.473Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "CONTENT_ITEM_INVALID_JSON",
+      "message": "Invalid value for name"
+    }
+  ]
+}
+data: [object Object]
+[2025-01-01T21:59:00.874Z] createBlogAPI: An error occurred:
+Error: {
+  "errors": [
+    {
+      "level": "ERROR",
+      "code": "CONTENT_ITEM_INVALID_JSON",
+      "message": "Invalid value for label"
+    }
+  ]
+}
+data: [object Object]
+[2025-01-01T22:01:28.819Z] createBlogAPI: created 
+jdsports
+[2025-01-01T22:02:08.995Z] createBlogAPI: created 
+jdsports
+[2025-01-01T22:03:24.035Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:08:26.921Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:13:07.971Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:15:10.856Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:16:57.849Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:18:34.873Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:21:03.201Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:21:34.360Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:22:46.713Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:24:58.404Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:28:20.179Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:41:16.807Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:44:56.143Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:49:21.742Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:50:31.418Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:51:25.797Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:52:43.075Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:53:57.999Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
+[2025-01-01T22:54:07.093Z] createBlogAPI: created 
+https://www.jdsports.com/store/men/shoes/_/N-puo7x9
