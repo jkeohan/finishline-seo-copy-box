@@ -29,11 +29,12 @@ export const processCSV = async (filePath) => {
 		fs.createReadStream(filePath)
 			.pipe(csv())
 			.on('data', (row) => {
-				result.push({
-					address: row['Address'],
-					extractor1: row['Extractor 1 1'],
-					extractor2: row['Extractor 2 1'],
-				});
+				if (row['Extractor 1 1'])
+					result.push({
+						address: row['Address'],
+						extractor1: row['Extractor 1 1'],
+						extractor2: row['Extractor 2 1'],
+					});
 			})
 			.on('end', () => {
 				return resolve(result);

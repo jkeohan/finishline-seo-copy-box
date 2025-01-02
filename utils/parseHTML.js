@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 const TAGS = {
 	// P: (node) => `${node.textContent}\n\n`, // Paragraph
 	P: (node) => [
-		...Array.from(node.childNodes).map(processNode).filter(Boolean),
+		...Array.from(node.childNodes).map(processNode).filter(Boolean)
 	],
 	H1: (node) => `# ${node.textContent}\n`, // Heading 1
 	H2: (node) => `## ${node.textContent}\n`, // Heading 2
@@ -41,6 +41,9 @@ const parseHTMLToParentBlocks = (htmlString) => {
 };
 
 export const convertHTMLToMarkdown = (htmlString) => {
+    seoButtons.list = []
+    seoButtons.title = ''
+
 	const newHtmlString = ensureParagraphTags(htmlString);
 
 	const parentBlocks = parseHTMLToParentBlocks(newHtmlString);

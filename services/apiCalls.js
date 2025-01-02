@@ -10,6 +10,7 @@ const contentManagementUrl = "https://api.amplience.net/v2/content/content-repos
 // const contentManagementUrl = `https://api.amplience.net/v2/content/content-repositories/${DC_REPO_ID}/content-items`;
 
 export const createSEOCopyBlockAPI = async (data) => {
+	const label = data.label
 	try {
 		const response = await axios.post(contentManagementUrl, data, {
 			headers: {
@@ -17,7 +18,7 @@ export const createSEOCopyBlockAPI = async (data) => {
 				'Content-Type': 'application/json',
 			},
 		});
-		writeLog(`createBlogAPI: created \n${data.label}`);
+		writeLog(`created content item: ${label} \n`);
 		return response.data;
 	} catch (error) {
 		const errorData = JSON.stringify(
@@ -26,7 +27,7 @@ export const createSEOCopyBlockAPI = async (data) => {
 			2
 		);
 		writeLog(
-			`createBlogAPI: An error occurred:\nError: ${errorData}\ndata: ${data.label}`
+			`An error occurred:\n: ${errorData}\ndata: ${label} \n`
 		);
 
 		console.error(
