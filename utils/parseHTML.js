@@ -2,17 +2,18 @@ import { JSDOM } from 'jsdom';
 
 const TAGS = {
 	// P: (node) => `${node.textContent}\n\n`, // Paragraph
-	P: (node) => [
-		...Array.from(node.childNodes).map(processNode).filter(Boolean)
-	],
+	P: (node) =>
+		[...Array.from(node.childNodes).map(processNode).filter(Boolean)].join(''),
 	H1: (node) => `# ${node.textContent}\n`, // Heading 1
 	H2: (node) => `## ${node.textContent}\n`, // Heading 2
 	H3: (node) => `### ${node.textContent}\n\n`, // Heading 3
 	H4: (node) => `#### ${node.textContent}\n`, // Heading 4
 	EM: (node) =>
-		`*${[...Array.from(node.childNodes).map(processNode).filter(Boolean)]}*`, // Emphasized (italic)
+		` *${[...Array.from(node.childNodes).map(processNode).filter(Boolean)]}* `, // Emphasized (italic)
 	STRONG: (node) =>
-		`**${[...Array.from(node.childNodes).map(processNode).filter(Boolean)]}**`, // Strong (bold)
+		` **${[
+			...Array.from(node.childNodes).map(processNode).filter(Boolean),
+		].join('')}** `, // Strong (bold)
 	I: (node) => `*${node.textContent}*`, // Italic (same as EM)
 	A: (node) => `[${node.textContent}](${node.href})`, // Anchor (link)
 	UL: (node) => node.childNodes.map((child) => TAGS.LI(child)).join('\n'), // Unordered list
@@ -30,6 +31,7 @@ function ensureParagraphTags(htmlString) {
 	// console.log('htmlString', htmlString);
 	// replace &amp with &
 	htmlString = htmlString.replace(/&amp;/g, '&');
+	htmlString = htmlString.replace(/�/g, "'");
 	return `${htmlString}`;
 }
 
@@ -41,8 +43,8 @@ const parseHTMLToParentBlocks = (htmlString) => {
 };
 
 export const convertHTMLToMarkdown = (htmlString) => {
-    seoButtons.list = []
-    seoButtons.title = ''
+	seoButtons.list = [];
+	seoButtons.title = '';
 
 	const newHtmlString = ensureParagraphTags(htmlString);
 
@@ -53,6 +55,7 @@ export const convertHTMLToMarkdown = (htmlString) => {
 		const processedBlock = processNode(block);
 		// console.log({parentBlocks})
 		if (processedBlock) {
+			console.log({ processedBlock });
 			textBlocks.push(processedBlock);
 		}
 	});
@@ -71,6 +74,8 @@ const processNode = (node) => {
 		const tagName = node.tagName.toUpperCase();
 		const tagHandler = TAGS[tagName];
 
+		// Add a newline before the heading tag if the previous node has conten
+
 		if (
 			tagName === 'H3' &&
 			node.nextElementSibling &&
@@ -78,7 +83,7 @@ const processNode = (node) => {
 			node.nextElementSibling.textContent.includes('|')
 		) {
 			skipNextP = true;
-			seoButtons.title = node.textContent.replace(/�/g, "'");
+			seoButtons.title = node.textContent;
 			// Parse the links in the next <P> element's innerHTML
 			const anchorsArray = parseLinks(node.nextElementSibling.innerHTML);
 			if (anchorsArray && anchorsArray.length) {
@@ -92,7 +97,22 @@ const processNode = (node) => {
 			return '';
 		}
 
-		if (tagHandler) return tagHandler(node);
+		if (tagHandler) {
+			let handler = tagHandler(node);
+			if (['H1', 'H2', 'H3', 'H4'].includes(tagName)) {
+				// Get the previous sibling node
+				const previousNode = node.previousElementSibling;
+
+				// Check if the previous node has content
+				if (previousNode && previousNode.textContent.trim() !== '') {
+					// Add a newline before the heading
+					handler = `\n\n${handler}`;
+					return handler;
+				}
+			}
+			return handler;
+		}
+
 		// Handle children recursively if no specific TAGS handler is found
 		const children = Array.from(node.childNodes)
 			.map(processNode)
