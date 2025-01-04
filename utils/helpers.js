@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const logFilePath = path.join(__dirname, 'logs.txt');
+const logFilePath = path.join(__dirname, 'logs.log');
 const csvFilePath = path.join(__dirname, '../data/jd_copy_extraction.csv');
 console.log('csvFilePath in helpers', csvFilePath)
 

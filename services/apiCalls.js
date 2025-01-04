@@ -9,7 +9,7 @@ const contentManagementUrl = "https://api.amplience.net/v2/content/content-repos
 
 // const contentManagementUrl = `https://api.amplience.net/v2/content/content-repositories/${DC_REPO_ID}/content-items`;
 
-export const createSEOCopyBlockAPI = async (data) => {
+export const createSEOCopyBlockAPI = async (data, index) => {
 	const label = data.label
 	try {
 		const response = await axios.post(contentManagementUrl, data, {
@@ -27,7 +27,7 @@ export const createSEOCopyBlockAPI = async (data) => {
 			2
 		);
 		writeLog(
-			`An error occurred:\n: ${errorData}\ndata: ${label} \n`
+			`An error occurred:\n: ${errorData}\ndata: ${index} ${label} \n`
 		);
 
 		console.error(
