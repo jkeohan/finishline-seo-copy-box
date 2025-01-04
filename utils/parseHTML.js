@@ -20,7 +20,8 @@ const TAGS = {
 	LI: (node) => `- ${node.textContent}`, // List item
 	HR: () => `\n\n---\n`, // Horizontal rule
 	BR: () => `\n`, // Line break (single newline)
-	DIV: (node) => node.textContent, // Div (no special formatting)
+	DIV: (node) =>
+		[...Array.from(node.childNodes).map(processNode).filter(Boolean)].join(''), // Div (no special formatting)
 };
 const seoButtons = {
 	list: [],
