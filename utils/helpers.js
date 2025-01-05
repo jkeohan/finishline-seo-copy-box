@@ -7,7 +7,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const logFilePath = path.join(__dirname, 'logs.log');
 const csvFilePath = path.join(__dirname, '../data/jd_copy_extraction.csv');
-console.log('csvFilePath in helpers', csvFilePath)
 
 export const writeLog = (message) => {
 	const timestamp = new Date().toISOString();
@@ -23,7 +22,6 @@ export const writeLog = (message) => {
 };
 
 export const processCSV = async (filePath) => {
-	console.log('filePath', filePath);
 	return new Promise((resolve, reject) => {
 		const result = [];
 		fs.createReadStream(filePath)

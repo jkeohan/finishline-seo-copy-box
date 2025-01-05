@@ -29,7 +29,6 @@ const seoButtons = {
 };
 
 function ensureParagraphTags(htmlString) {
-	// console.log('htmlString', htmlString);
 	// replace &amp with &
 	htmlString = htmlString.replace(/&amp;/g, '&');
 	htmlString = htmlString.replace(/�/g, "'");
@@ -54,13 +53,11 @@ export const convertHTMLToMarkdown = (htmlString) => {
 
 	parentBlocks.forEach((block) => {
 		const processedBlock = processNode(block);
-		// console.log({parentBlocks})
 		if (processedBlock) {
 			console.log({ processedBlock });
 			textBlocks.push(processedBlock);
 		}
 	});
-	console.log({ textBlocks, seoButtons });
 	return { textBlocks, seoButtons };
 };
 
@@ -68,7 +65,6 @@ let skipNextP = false;
 
 const processNode = (node) => {
 	if (node.nodeType === 3) {
-		// console.log('node.nodeType', node.nodeValue)
 		return node.nodeValue.trim();
 	} else if (node.nodeType === 1) {
 		// ELEMENT_NODE
@@ -132,7 +128,6 @@ function parseLinks(html) {
 
 	// Select all anchor tags in the paragraph
 	const anchorTags = doc.querySelectorAll('a');
-	//   console.log({ anchorTags });
 
 	// Map over anchor tags and return the desired array of objects
 	const anchorsArr = Array.from(anchorTags).map((anchor) => ({

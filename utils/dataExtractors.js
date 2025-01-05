@@ -9,7 +9,6 @@ export const extractSEOCopyBoxData = ({ address, extractor1 }) => {
 	body = body.replace(/(?<![\s\*]{1,2})\[/g, ' [');
 	// add space after anchor if one doesn't already exist but not if next char is a comma
 	body = body.replace(/(?<=\))(?=\S)(?!,)/g, ' ');
-	console.log('body', body);
 	return {
 		name: address,
 		label: address,
