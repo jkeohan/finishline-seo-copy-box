@@ -1,7 +1,5 @@
 import axios from 'axios';
-import dotenv from 'dotenv';
-import { CLIENT_ID, CLIENT_SECRET } from '../data/constants.js';
-dotenv.config();
+import { CLIENT_ID, CLIENT_SECRET } from '../data/constants';
 
 export const getAccessToken = async function () {
 	try {

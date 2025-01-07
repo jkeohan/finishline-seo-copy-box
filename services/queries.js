@@ -14,7 +14,7 @@ export const buildSEOCopyBoxQuery = ({
 				},
 				seoCopy: {
 					hide: false,
-					body,
+					body
 				},
 				seoBrands: {
 					hide: false,

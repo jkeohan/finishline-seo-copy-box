@@ -5,9 +5,7 @@ import { DC_REPO_ID } from '../data/constants.js'
 
 const accessToken = await getAccessToken();
 
-const contentManagementUrl = "https://api.amplience.net/v2/content/content-repositories/6724d0603736886cda0324f2/content-items"
-
-// const contentManagementUrl = `https://api.amplience.net/v2/content/content-repositories/${DC_REPO_ID}/content-items`;
+const contentManagementUrl = `https://api.amplience.net/v2/content/content-repositories/${DC_REPO_ID}/content-items`;
 
 export const createSEOCopyBlockAPI = async (data, index) => {
 	const label = data.label
