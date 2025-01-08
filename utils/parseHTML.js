@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 const TAGS = {
 	// P: (node) => `${node.textContent}\n\n`, // Paragraph
 	P: (node) =>
-		[...Array.from(node.childNodes).map(processNode).filter(Boolean)].join(''),
+		[...Array.from(node.childNodes).map(processNode).filter(Boolean)].join('') + '\n\n',
 	H1: (node) => `# ${node.textContent}\n`, // Heading 1
 	H2: (node) => `## ${node.textContent}\n`, // Heading 2
 	H3: (node) => `### ${node.textContent}\n\n`, // Heading 3
@@ -18,7 +18,7 @@ const TAGS = {
 	A: (node) => `[${node.textContent}](${node.href})`, // Anchor (link)
 	UL: (node) => node.childNodes.map((child) => TAGS.LI(child)).join('\n'), // Unordered list
 	LI: (node) => `- ${node.textContent}`, // List item
-	HR: () => `\n\n---\n`, // Horizontal rule
+	HR: () => ``, // Horizontal rule
 	BR: () => `\n`, // Line break (single newline)
 	DIV: (node) =>
 		[...Array.from(node.childNodes).map(processNode).filter(Boolean)].join(''), // Div (no special formatting)
@@ -27,8 +27,10 @@ const seoButtons = {
 	list: [],
 	title: '',
 };
+let headerCount = 0;
+let header = '';
 
-function ensureParagraphTags(htmlString) {
+function cleanHTML(htmlString) {
 	// replace &amp with &
 	htmlString = htmlString.replace(/&amp;/g, '&');
 	htmlString = htmlString.replace(/�/g, "'");
@@ -45,10 +47,12 @@ const parseHTMLToParentBlocks = (htmlString) => {
 export const convertHTMLToMarkdown = (htmlString) => {
 	seoButtons.list = [];
 	seoButtons.title = '';
+	headerCount = 0;
+	header = '';
 
-	const newHtmlString = ensureParagraphTags(htmlString);
+	const cleanHTMLString = cleanHTML(htmlString);
 
-	const parentBlocks = parseHTMLToParentBlocks(newHtmlString);
+	const parentBlocks = parseHTMLToParentBlocks(cleanHTMLString);
 	const textBlocks = [];
 
 	parentBlocks.forEach((block) => {
@@ -58,7 +62,8 @@ export const convertHTMLToMarkdown = (htmlString) => {
 			textBlocks.push(processedBlock);
 		}
 	});
-	return { textBlocks, seoButtons };
+	console.log('textBlocks', textBlocks);
+	return { textBlocks, seoButtons, header };
 };
 
 let skipNextP = false;
@@ -70,15 +75,15 @@ const processNode = (node) => {
 		// ELEMENT_NODE
 		const tagName = node.tagName.toUpperCase();
 		const tagHandler = TAGS[tagName];
-
-		// Add a newline before the heading tag if the previous node has conten
-
+		// looking for an H3 with a P which includes | as this indicates the links are seo buttons
+		// the H3 will be assigned to seoButtons.title and buttons added to seoButtons list array
 		if (
 			tagName === 'H3' &&
 			node.nextElementSibling &&
 			node.nextElementSibling.tagName === 'P' &&
 			node.nextElementSibling.textContent.includes('|')
 		) {
+			// skipNextP set so that the P isn't processed as we only need the links
 			skipNextP = true;
 			seoButtons.title = node.textContent;
 			// Parse the links in the next <P> element's innerHTML
@@ -88,23 +93,20 @@ const processNode = (node) => {
 			}
 			return '';
 		}
-
+		// break out of processNode since the links have already been processed from this P
 		if (skipNextP && tagName === 'P') {
 			skipNextP = false;
 			return '';
 		}
-
+		// set the first header as the seo header copy header
 		if (tagHandler) {
 			let handler = tagHandler(node);
 			if (['H1', 'H2', 'H3', 'H4'].includes(tagName)) {
-				// Get the previous sibling node
-				const previousNode = node.previousElementSibling;
-
-				// Check if the previous node has content
-				if (previousNode && previousNode.textContent.trim() !== '') {
-					// Add a newline before the heading
-					handler = `\n\n${handler}`;
-					return handler;
+				if (headerCount === 0) {
+					headerCount += 1;
+					console.log('header textcontent', node.textContent);
+					header = node.textContent;
+					return '';
 				}
 			}
 			return handler;

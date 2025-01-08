@@ -1,7 +1,7 @@
 import { convertHTMLToMarkdown } from './parseHTML.js'
 
 export const extractSEOCopyBoxData = ({ address, extractor1 }) => {
-	let { textBlocks, seoButtons } = convertHTMLToMarkdown(extractor1);
+	let { textBlocks, seoButtons, header } = convertHTMLToMarkdown(extractor1);
 	let body = textBlocks.join('');
 	// removes any spaces that occur immediately before a comma
 	body = body.replace(/\s+(?=,)/g, '');
@@ -14,5 +14,6 @@ export const extractSEOCopyBoxData = ({ address, extractor1 }) => {
 		label: address,
 		body,
 		seoButtons,
+		header
 	};
 };
