@@ -2,7 +2,7 @@
 import { createSEOCopyBlockAPI } from './services/apiCalls.js';
 import { buildSEOCopyBoxQuery } from './services/queries.js';
 import { extractSEOCopyBoxData } from './utils/dataExtractors.js';
-import { processCSV} from './utils/helpers.js';
+import { processCSV } from './utils/helpers.js';
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -19,6 +19,7 @@ try {
 
 const delay = 750;
 const createSEOCopyBox = async (data) => {
+	// extract name, label, body, seoButtons
 	let blogSEOCopyBoxData = extractSEOCopyBoxData(data);
 	const seoCopyBoxQuery = buildSEOCopyBoxQuery(blogSEOCopyBoxData);
 
