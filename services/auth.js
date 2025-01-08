@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CLIENT_ID, CLIENT_SECRET } from '../data/constants';
+import { CLIENT_ID, CLIENT_SECRET } from '../data/constants.js';
 
 export const getAccessToken = async function () {
 	try {
